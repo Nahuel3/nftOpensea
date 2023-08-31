@@ -1,24 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState,} from 'react';
+
 
 const NFTGallery = () => {
-  const contractAddress = '0x495f947276749Ce646f68AC8c248420045cb7b5e'; // Dirección del contrato
-  const apiEndpoint = `https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&asset_contract_address=${contractAddress}`;
+  const options = {
+    method: 'GET',
+    headers: {accept: 'application/json', 'X-API-KEY': '314a308105454f8db5ec7000a046c9e8'}
+  };
+  
+  fetch('https://api.opensea.io/v2/chain/Ethereum/contract/0x495f947276749Ce646f68AC8c248420045cb7b5e/nfts?limit=10', options)
 
-  const [nfts, setNFTs] = useState([]);
-
-  useEffect(() => {
-    // Realizar la solicitud a la API de OpenSea
-    axios.get(apiEndpoint)
-      .then(response => {
-        // Actualizar el estado con los datos de los NFT
-        setNFTs(response.data.assets);
-        
-      })
-      .catch(error => {
-        console.error('Error al obtener los datos de los NFT:', error);
-      });
-  }, [apiEndpoint]);
+  const [nfts] = useState([]);
 
   return (
     <div>
