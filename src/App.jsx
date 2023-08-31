@@ -6,7 +6,7 @@ const NFTGallery = () => {
   useEffect(() => {
     const options = {
       method: 'GET',
-      headers: { accept: 'application/json', 'X-API-KEY': '314a308105454f8db5ec7000a046c9e8' }
+      headers: { accept: 'application/json', '314a308105454f8db5ec7000a046c9e8': '314a308105454f8db5ec7000a046c9e8' }
     };
 
     fetch('https://api.opensea.io/v2/chain/Ethereum/contract/0x495f947276749Ce646f68AC8c248420045cb7b5e/nfts?limit=10', options)
