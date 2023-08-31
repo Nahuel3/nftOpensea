@@ -9,10 +9,11 @@ const NFTGallery = () => {
       headers: { accept: 'application/json', 'X-API-KEY': '314a308105454f8db5ec7000a046c9e8' }
     };
 
-    fetch('https://api.opensea.io/v2/chain/Ethereum/contract/0x495f947276749Ce646f68AC8c248420045cb7b5e/nfts?limit=10', options)
+    fetch('https://api.opensea.io/v2/collection/freedomk/nfts?limit=250', options)
       .then(response => response.json())
       .then(data => {
-        setNFTs(data.assets);
+        setNFTs(data.nfts);
+        
       })
       .catch(error => {
         console.error('Error al obtener los datos de los NFT:', error);
@@ -24,9 +25,11 @@ const NFTGallery = () => {
       <h1>Lista de NFTs</h1>
       <ul>
         {nfts.map(nft => (
-          <li key={nft.id}>
-            <img src={nft.image_preview_url} alt={nft.name} />
+          <li key={nft.identifier}>
+            <img src={nft.image_url} alt={nft.name} />
             <p>{nft.name}</p>
+            <p>{nft.description}</p>
+          
           </li>
         ))}
       </ul>
