@@ -9,7 +9,7 @@ const NFTGallery = () => {
       headers: { accept: 'application/json', 'X-API-KEY': '314a308105454f8db5ec7000a046c9e8' }
     };
 
-    fetch('https://api.opensea.io/v2/collection/freedomk/nfts?limit=250', options)
+    fetch('https://api.opensea.io/v2/collection/freedomk/nfts?limit=50', options)
       .then(response => response.json())
       .then(data => {
         setNFTs(data.nfts);
