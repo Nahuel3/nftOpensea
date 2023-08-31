@@ -1,0 +1,28 @@
+/* NFTGallery.css */
+
+.nft-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .nft-item {
+    text-align: center;
+    margin: 10px;
+   
+  }
+  
+  .nft-item img {
+    max-width: 200px;
+  }
+  
+
+  h1{
+    text-align: center;
+  }
+
+  
+  
+  

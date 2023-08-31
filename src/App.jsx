@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import './NFTGallery.css';
+
 
 const NFTGallery = () => {
   const [nfts, setNFTs] = useState([]);
@@ -23,12 +25,12 @@ const NFTGallery = () => {
   return (
     <div>
       <h1>Lista de NFTs</h1>
-      <ul>
+      <ul className="nft-gallery">
         {nfts.map(nft => (
-          <li key={nft.identifier}>
+          <li key={nft.identifier} className="nft-item">
             <img src={nft.image_url} alt={nft.name} />
-            <p>{nft.name}</p>
-            <p>{nft.description}</p>
+            <p>NftName: {nft.name}</p>
+            <p>Collection: {nft.collection}</p>
           
           </li>
         ))}
